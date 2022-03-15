@@ -6,14 +6,22 @@ export default function OverViewComponent({ income, expense, addTransaction }) {
     <div>
       <div className="topSection">
         <p>Balance: {income - expense}</p>
-        <button onClick={() => setIsShow((prevState) => !prevState)}>
+        <button
+          className={`btn ${isShow && 'cancelBtn'}`}
+          onClick={() => setIsShow((prevState) => !prevState)}
+        >
           {isShow ? 'Cancel' : 'Add'}
         </button>
       </div>
-      {isShow && <TransActionForm addTransaction={addTransaction} />}
+      {isShow && (
+        <TransActionForm
+          addTransaction={addTransaction}
+          setIsShow={setIsShow}
+        />
+      )}
       <div className="resultSection">
         <div className="expenseBox">
-          Expense <span style={{color:"red"}}>&#65284;{expense}</span>
+          Expense <span style={{ color: 'red' }}>&#65284;{expense}</span>
         </div>
         <div className="expenseBox">
           Income <span>&#65284;{income}</span>{' '}
@@ -23,7 +31,7 @@ export default function OverViewComponent({ income, expense, addTransaction }) {
   );
 }
 
-function TransActionForm({ addTransaction }) {
+function TransActionForm({ addTransaction, setIsShow }) {
   const [formValues, setFormValues] = useState({
     type: 'expense',
     amount: 0,
@@ -37,23 +45,28 @@ function TransActionForm({ addTransaction }) {
   const submitHandler = (e) => {
     e.preventDefault();
     addTransaction(formValues);
+    setIsShow(false);
   };
 
   return (
     <form onSubmit={submitHandler}>
       <input
+        className="fotmValueInput"
         type="text"
         name="desc"
         onChange={changeHandler}
         value={formValues.desc}
+        placeholder="description ..."
       />
       <input
+        className="fotmValueInput"
         type="number"
         name="amount"
         onChange={changeHandler}
         value={formValues.amount}
+        placeholder="amount"
       />
-      <div>
+      <div className="radioBtn">
         <input
           type="radio"
           value="expense"
@@ -71,7 +84,9 @@ function TransActionForm({ addTransaction }) {
         />
         <>Income</>
       </div>
-      <button type="submit">Add transaction</button>
+      <button className="btn primary" type="submit">
+        Add transaction
+      </button>
     </form>
   );
 }

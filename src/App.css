@@ -11,12 +11,8 @@
 }
 
 .container{
-  position: absolute;
-  left: 50%;
-  top: 37%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   width: 500px;
   background-color: #fff;
   padding: 10px;
@@ -29,13 +25,16 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  margin-inline: 64px;
+
 }
 
 .resultSection{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
+
 .expenseBox{
   width: 135px;
   display: flex;
@@ -47,6 +46,61 @@
   border: 1px solid #ccc;
   height: 60px;
 }
+
 .expenseBox span{
+  font-weight: bold;
   color: green
+} 
+
+.btn{
+  background-color: #ecfeff;
+  color: #0e7490;
+  border: 1px solid #0e7490;
+  border-radius: 5px;
+  padding: 5px 10px;
+   font-family: 'Brush Script MT', cursive;
+}
+
+.cancelBtn{
+  color: #ef4444;
+  background-color: #fef2f2;
+  border: 1px solid #ef4444;
+   font-family: 'Brush Script MT', cursive;
+}
+
+.primary{
+  width: 75%;
+  background-color: #164e63;
+  color: #fff;
+  border: none;
+  font-family: 'Brush Script MT', cursive;
+  padding-block: 10px;
+  margin-block: 25px;
+}
+
+.fotmValueInput {
+  width: 70%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.radioBtn{
+  display: flex;
+  justify-content: flex-start;
+  margin: 9px 60px;
+}
+
+.transaction{
+  display: flex;
+  justify-content: space-between;
+  border-right: 10px solid green;
+  border-radius: 5px;
+  background-color: #ecfeff;
+  padding: 15px;
+  margin-block: 20px;
+  margin-inline: 60px;
 }

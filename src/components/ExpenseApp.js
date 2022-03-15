@@ -17,20 +17,24 @@ export default function ExpenseApp() {
     let exp = 0;
     let inc = 0;
     transaction.forEach((t) => {
-      t.type === 'expense' ? (exp = exp + parseFloat(t.amount)) : (inc = inc + parseFloat(t.amount));
+      t.type === 'expense'
+        ? (exp = exp + parseFloat(t.amount))
+        : (inc = inc + parseFloat(t.amount));
     });
     setExpense(exp);
     setIncome(inc);
   }, [transaction]);
 
   return (
-    <section className="container">
-      <OverViewComponent
-        income={income}
-        expense={expense}
-        addTransaction={addTransaction}
-      />
-      <TransActionComponent transaction={transaction} />
-    </section>
+    <div>
+      <section className="container">
+        <OverViewComponent
+          income={income}
+          expense={expense}
+          addTransaction={addTransaction}
+        />
+        <TransActionComponent transaction={transaction} />
+      </section>
+    </div>
   );
 }
