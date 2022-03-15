@@ -74,7 +74,7 @@ function TransActionForm({ addTransaction, setIsShow }) {
           checked={formValues.type === 'expense'}
           onChange={changeHandler}
         />
-        <>Expense</>
+        <span>Expense</span>
         <input
           type="radio"
           value="income"
@@ -82,7 +82,7 @@ function TransActionForm({ addTransaction, setIsShow }) {
           checked={formValues.type === 'income'}
           onChange={changeHandler}
         />
-        <>Income</>
+        <span>Income</span>
       </div>
       <button className="btn primary" type="submit">
         Add transaction
