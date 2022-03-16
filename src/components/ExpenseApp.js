@@ -5,7 +5,11 @@ import TransActionComponent from './TransActionComponent';
 export default function ExpenseApp() {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
-  const [transaction, setTransaction] = useState([]);
+  const [transaction, setTransaction] = useState(() => {
+    const saved = localStorage.getItem('transactions');
+    const initialValue = JSON.parse(saved);
+    return initialValue || '';
+  });
 
   const addTransaction = (formValues) => {
     console.log(formValues);
@@ -23,6 +27,7 @@ export default function ExpenseApp() {
     });
     setExpense(exp);
     setIncome(inc);
+    localStorage.setItem('transactions', JSON.stringify(transaction));
   }, [transaction]);
 
   return (

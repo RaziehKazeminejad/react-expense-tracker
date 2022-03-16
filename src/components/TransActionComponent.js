@@ -24,7 +24,7 @@ export default function TransActionComponent(props) {
     filteredTransactions(searchItem);
   }, [props.transaction]);
 
-  if(!props.transaction.length) return <p>Add Your Expense / Income !</p>
+  if (!props.transaction.length) return <p>Add Your Expense / Income !</p>;
 
   return (
     <div>
@@ -33,7 +33,7 @@ export default function TransActionComponent(props) {
         value={searchItem}
         onChange={searchHandler}
         className="search"
-        placeholder='Search...'
+        placeholder="Search..."
       />
       {filteredTnx.length ? (
         filteredTnx.map((t) => (
